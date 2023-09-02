@@ -196,7 +196,7 @@ export function ChallengeCreationCard({
     { id: '4', name: '🚀', schema: z.any() },
   ];
   return (
-    <FeatureCard {...props}>
+    <FeatureCard {...props} >
       <div
         className={clsx(
           { 'translate-x-0 opacity-0': step < 3 },
@@ -348,7 +348,7 @@ export function ChallengeCreationCard({
             }}
           />
           <div className="absolute -right-4 bottom-4 w-full">
-            <Steps current={step} onChange={() => {}} steps={steps} />
+            <Steps current={step} onChange={() => { }} steps={steps} />
           </div>
         </>
       )}
