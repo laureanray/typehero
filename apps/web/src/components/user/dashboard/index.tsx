@@ -1,17 +1,14 @@
 import { getServerAuthSession } from '@repo/auth/server';
 import { prisma } from '@repo/db';
 import type { User } from '@repo/db/types';
+import { Card, CardContent, CardHeader, CardTitle } from '@repo/ui/components/card';
+import { MagicIcon } from '@repo/ui/components/magic-icon';
 import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  MagicIcon,
   Tabs,
   VerticalTabsContent,
   VerticalTabsList,
   VerticalTabsTrigger,
-} from '@repo/ui';
+} from '@repo/ui/components/tabs';
 import { Bookmark, ChevronRightSquare, MessagesSquare, Play, Settings } from '@repo/ui/icons';
 import Link from 'next/link';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
@@ -56,7 +53,7 @@ async function getUserdata(id: string) {
   return userData;
 }
 
-export default async function Dashboard({ user }: Props) {
+export async function Dashboard({ user }: Props) {
   const userData = await getUserdata(user.id);
   const session = await getServerAuthSession();
 
